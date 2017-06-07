@@ -18,9 +18,9 @@ public class LicenseClass {
 	@Column(name="class", columnDefinition="VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin", nullable=false)
 	private String classType;
 	@Column(name="created", nullable=false)
-	private Date created;
+	private Date created = new Date();
 	@Column(name="modified", nullable=false)
-	private Date modified;
+	private Date modified = new Date();
 	
 	public LicenseClass() {}
 	
@@ -52,5 +52,14 @@ public class LicenseClass {
 	}
 	public void setModified(Date modified) {
 		this.modified = modified;
+	}
+
+	@Override
+	public String toString() {
+		return ""
+			+ "id: " + id
+			+ "\nclass: " + classType
+			+ "\ncreated: " + created
+			+ "\nmodified: " + modified;
 	}
 }

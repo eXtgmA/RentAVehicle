@@ -29,7 +29,7 @@ public class Vehicle {
 	private String gears;
     @JoinTable(name="license_class", joinColumns=@JoinColumn(name="id"))
 	@Column(name="license_class_id", columnDefinition="VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin", nullable=false)
-	private String licenseClassId;
+	private Long licenseClassId;
     @JoinTable(name="tire", joinColumns=@JoinColumn(name="id"))
 	@Column(name="trie_id")
 	private Long trieId;
@@ -38,14 +38,14 @@ public class Vehicle {
 	@Column(name="first_registration")
 	private Date firstRegistration;
 	@Column(name="created", nullable=false)
-	private Date created;
+	private Date created = new Date();
 	@Column(name="modified", nullable=false)
-	private Date modified;
+	private Date modified = new Date();
 	
 	public Vehicle() {}
 	
 	public Vehicle(String chassisNumber, String brand, String model, Long power, Long torque, String gears,
-			String licenseClassId, Long trieId, Long currentKilometrage, Date firstRegistration) {
+			Long licenseClassId, Long trieId, Long currentKilometrage, Date firstRegistration) {
 		super();
 		this.chassisNumber = chassisNumber;
 		this.brand = brand;
@@ -95,10 +95,10 @@ public class Vehicle {
 	public void setGears(String gears) {
 		this.gears = gears;
 	}
-	public String getLicenseClassId() {
+	public Long getLicenseClassId() {
 		return licenseClassId;
 	}
-	public void setLicenseClassId(String licenseClassId) {
+	public void setLicenseClassId(Long licenseClassId) {
 		this.licenseClassId = licenseClassId;
 	}
 	public Long getTrieId() {
@@ -130,5 +130,21 @@ public class Vehicle {
 	}
 	public void setModified(Date modified) {
 		this.modified = modified;
+	}
+
+	@Override
+	public String toString() {
+		return ""
+			+ "chassisNumber: " + chassisNumber
+			+ "\nbrand: " + brand
+			+ "\npower: " + power
+			+ "\ntorque: " + torque
+			+ "\ngears: " + gears
+			+ "\nlicenseClassId: " + licenseClassId
+			+ "\ntrieId: " + trieId
+			+ "\ncurrentKilometrage: " + currentKilometrage
+			+ "\nfirstRegistration: " + firstRegistration
+			+ "\ncreated: " + created
+			+ "\nmodifed: " + modified;
 	}
 }

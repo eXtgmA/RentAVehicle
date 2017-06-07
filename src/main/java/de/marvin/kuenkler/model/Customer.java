@@ -26,14 +26,13 @@ public class Customer {
 	@Column(name="driving_license_number", columnDefinition="VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin")
 	private String drivingLicenseNumber;
 	@Column(name="created", nullable=false)
-	private Date created;
+	private Date created = new Date();
 	@Column(name="modified", nullable=false)
-	private Date modified;
+	private Date modified = new Date();
 	
 	public Customer() {}
 	
 	public Customer(String name, String firstname, String idcardNumber, Date birthday, String drivingLicenseNumber) {
-		super();
 		this.name = name;
 		this.firstname = firstname;
 		this.idcardNumber = idcardNumber;
@@ -88,5 +87,18 @@ public class Customer {
 	}
 	public void setModified(Date modified) {
 		this.modified = modified;
-	}	
+	}
+
+	@Override
+	public String toString() {
+		return ""
+			+ "id: " + id
+			+ "name: " + name
+			+ "firstName: " + firstname
+			+ "idCardNumber: " + idcardNumber
+			+ "birthday: " + birthday
+			+ "drivingLicenseNumber: " + drivingLicenseNumber
+			+ "\ncreated: " + created
+			+ "\nmodified: " + modified;
+	}
 }

@@ -121,4 +121,17 @@ public class Bookinghistory {
 		this.modified = modified;
 	}
 
+	@Override
+	public String toString() {
+    	return ""
+			+ "id: " + id
+			+ "\nchassisNumber" + chassisNumber
+			+ "\ncustomerId" + customerId
+			+ "\ntimeStart" + timeStart
+			+ "\ntimeEnd" + timeEnd
+			+ "\nkilometrageStart" + kilometrageStart
+			+ "\nkilometrageEnd" + kilometrageEnd
+			+ "\ncreated" + created
+			+ "\nmodified" + modified;
+	}
 }
